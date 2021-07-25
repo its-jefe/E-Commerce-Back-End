@@ -1,3 +1,4 @@
 # eCommerce Back End 🍑
 
-https://github.com/coding-boot-camp/fantastic-umbrella
+Starter code from [here](https://github.com/coding-boot-camp/fantastic-umbrella)  
+
