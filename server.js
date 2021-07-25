@@ -14,3 +14,11 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
 });
+
+    /* 
+    Create the code needed in server.js to sync the Sequelize models to the MySQL database on server start.
+    */
+
+    /*
+    After creating the models and routes, run npm run seed to seed data to your database so that you can test your routes.
+    */
