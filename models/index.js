@@ -6,31 +6,29 @@ const ProductTag = require('./ProductTag');
 
 // You'll need to execute association methods on your Sequelize models to create the following relationships between them:
 
-// Products belongsTo Category
-    /*
-    [Product] belongs to [Category], as a category can have multiple products but a product can only belong to one category.
-    */
-
 // Categories have many Products
-    /*
-    [Category] has many [Product] models.
-    */
+    Category.hasMany(Product, {
+        foreignKey: 'category_id' //? 
+    })
+
+// Products belongsTo Category
+    Product.belongsTo(Category, {
+        foreignKey: 'category_id' //?
+    })
 
 // Products belongToMany Tags (through ProductTag)
-    /*
-    [Product] belongs to many [Tag] models. Using the [ProductTag] through model, allow products to have multiple tags and tags to have many products.
-    */
+    Product.belongsToMany(Tag, {
+        through: ProductTag,
+        as: 'product_to_tag', // test
+        foreignKey: 'product_id' // Referencing through ProductTag??
+    })
 
 // Tags belongToMany Products (through ProductTag)
-    /*
-    [Tag] belongs to many [Product] models.
-    */
-
-// HINT
-    /*
-    Make sure you set up foreign key relationships that match the column we created in the respective models.
-    */
-
+    Tag.belongsToMany(Product, {
+        through: ProductTag,
+        as: 'tag_to_product', // test
+        foreignKey: 'tag_id' // referencing ProductTag
+    })
 
 module.exports = {
   Product,
