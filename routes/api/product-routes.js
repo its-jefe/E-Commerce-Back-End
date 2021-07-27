@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   Product.findOne({
     where: {
-      id: body.post_id
+      id: req.params.id
     },
     attributes: [
       'id',
@@ -70,7 +70,9 @@ router.get('/:id', (req, res) => {
           'id',
           'tag_name',
         ],
-      },
+        through: ProductTag,
+        as: 'tags'
+      }
     ]
   })
   .then(dbProductData => {

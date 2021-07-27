@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
   // find one category by its `id` value
   Category.findOne({
     where: {
-      id: body.post_id
+      id: req.params.id
     },
     attributes: [
       'id',
@@ -71,7 +71,6 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   Category.create({
-    id: req.body.id,
     category_name: req.body.category_name
   })
     .then(dbCategoryData => res.json(dbCategoryData))

@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   Tag.findOne({
     where: {
-      id: body.post_id
+      id: req.params.id
     },
     attributes: [
       'id',
@@ -48,17 +48,15 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Product,
-        attributes: [ // all attributes
+        attributes: [
           'id',
           'product_name',
           'price',
           'stock',
           'category_id',
         ],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
+        through: ProductTag,
+        as: 'products'
       }
     ]
   })
@@ -78,7 +76,6 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
-    id: req.body.id,
     tag_name: req.body.tag_name
   })
     .then(dbTagData => res.json(dbTagData))
