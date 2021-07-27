@@ -41,7 +41,7 @@ Tag belongs to many Product models.
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
     through: ProductTag,
-    as: 'tags',
+    as: 'products',
     foreignKey: 'tag_id'
 })
 
