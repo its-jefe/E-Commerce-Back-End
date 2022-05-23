@@ -10,7 +10,8 @@ Starter code from [here](https://github.com/coding-boot-camp/fantastic-umbrella)
 
 ## Usage
 
-[Usage Video](https://its-jefe.github.io/videos/13.html) walks through setup and API CRUD testing
+[Usage Video] walks through setup and API CRUD testing
+> Need a new usage video
 
 The command line code that I use for setup is as follows...
 
